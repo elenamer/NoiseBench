@@ -18,9 +18,21 @@ In this repository, we only provide the annotation files. we masked the tokens i
 
 ## Instructions
 
-1. Download cleanconll in data/cleanconll according to the instructions in https://github.com/flairNLP/CleanCoNLL.git.
+### Creating NoiseBench datasets
 
-2. Generate noisy datasets
+#### Option 1
+
+1. Run the script:
+
+``` 
+bash create_noisebench.sh
+```
+
+#### Option 2 (if the 'git clone' command is not available)
+
+1. Download the full CleanCoNLL dataset in the ```data/cleanconll``` folder according to the instructions in https://github.com/flairNLP/CleanCoNLL.git.
+
+2. Create noisy datasets
 ``` 
 python scripts/generate_data_files.py
 ```

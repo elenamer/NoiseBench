@@ -1,6 +1,10 @@
 from utils import *
 import os
 
+
+SAVE_TRAINDEV_FILE = False
+
+
 def create_train_dev_splits(filename, all_sentences = None, datestring = '1996-08-24'):
     if not all_sentences:
         all_sentences = read_conll(filename)
@@ -44,8 +48,9 @@ def merge_tokens_labels(corpus, all_clean_sentences, token_indices):
 
         for token, label in zip(clean_sentence, sentence):
             label[0] = token[0] # token[0] -> text, token[1] -> BIO label
-
-    save_to_column_file(os.path.join('data','noisebench',f'{corpus}.traindev'),noisy_labels)
+    if SAVE_TRAINDEV_FILE:
+        save_to_column_file(os.path.join('data','noisebench',f'{corpus}.traindev'),noisy_labels)
+    return noisy_labels
 
 
 def main():
@@ -59,8 +64,8 @@ def main():
 
     for corpus in ['clean', 'noise_expert','noise_crowd','noise_crowdbest','noise_distant','noise_weak','noise_llm']:
 
-        merge_tokens_labels(corpus, all_clean_sentences, token_indices)
-        create_train_dev_splits(os.path.join('data','noisebench',f'{corpus}.traindev'))
+        noisy_sentences = merge_tokens_labels(corpus, all_clean_sentences, token_indices)
+        create_train_dev_splits(all_sentences=noisy_sentences,filename=os.path.join('data','noisebench',f'{corpus}.traindev'))
 
 if __name__ == "__main__":
     main()
