@@ -42,12 +42,12 @@ python scripts/generate_data_files.py
 
 1. Requirements
 ```
-conda create -name noisebench python=3.10
+conda create -n noisebench python=3.10
 conda activate noisebench
 pip install -r requirements.txt
 ```
 
 2. Run
 ```
-python main.py --config exp1_real_noise.json
+python main.py --config configs/exp1_real_noise.json
 ```
