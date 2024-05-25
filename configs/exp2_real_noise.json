@@ -1,0 +1,28 @@
+{
+    "experiment_name": "Exp2",
+    "paths": {
+        "resources_path": "resources/exp2_memorization_real_noise/",
+        "data_path":"data/noisebench/",
+        "train_filename_extension" :".train",
+        "dev_filename_extension" :"clean.train",
+        "test_filename_extension" :"clean.test"
+    },
+    "parameters": {
+        "batch_size":[32],
+        "learning_rate":[5.0e-6],
+        "num_epochs":100,
+        "model":"xlm-roberta-large",
+        "monitor_train":true,
+        "monitor_test":true,
+        "scheduler": "None"
+    },
+    "corpora" : [
+        "clean",
+        "expert",
+        "crowd",
+        "crowdbest", 
+        "distant",
+        "weak",
+        "llm"
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "experiment_name": "Exp1",
+    "paths": {
+        "resources_path": "resources/exp1_baselines_real_noise/",
+        "data_path":"data/noisebench/",
+        "train_filename_extension" :".train",
+        "dev_filename_extension" :".dev",
+        "test_filename_extension" :"clean.test"
+    },
+    "parameters": {
+        "batch_size":[32],
+        "learning_rate":[5.0e-6],
+        "num_epochs":10,
+        "model":"xlm-roberta-large",
+        "monitor_train":false,
+        "monitor_test":false,
+        "scheduler": "Default"
+    },
+    "corpora" : [
+        "clean",
+        "expert",
+        "crowd",
+        "crowdbest", 
+        "distant",
+        "weak",
+        "llm"
+    ]
+}

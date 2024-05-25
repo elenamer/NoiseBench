@@ -38,3 +38,16 @@ bash create_noisebench.sh
 python scripts/generate_data_files.py
 ```
 
+### Running experiments
+
+1. Requirements
+```
+conda create -name noisebench python=3.10
+conda activate noisebench
+pip install -r requirements.txt
+```
+
+2. Run
+```
+python main.py --config exp1_real_noise.json
+```
