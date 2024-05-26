@@ -66,6 +66,18 @@ def main():
 
         noisy_sentences = merge_tokens_labels(corpus, all_clean_sentences, token_indices)
         create_train_dev_splits(all_sentences=noisy_sentences,filename=os.path.join('data','noisebench',f'{corpus}.traindev'))
+    
+    # copy test set 
+    all_clean_test_sentences = read_conll(os.path.join('data','cleanconll','cleanconll.test'))
+    
+    test_sentences = []
+    for s in all_clean_test_sentences:
+        new_s = []
+        for token in s:
+            new_s.append([token[0],token[4]])
+        test_sentences.append(new_s)
+
+    save_to_column_file(os.path.join('data','noisebench',f'clean.test'),test_sentences)
 
 if __name__ == "__main__":
     main()

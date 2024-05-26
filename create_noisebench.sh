@@ -8,7 +8,6 @@ mv ./data/cleanconll/* ../data/cleanconll
 cd ..
 rm -rf CleanCoNLL/*
 rm -rf CleanCoNLL
-mv ./data/cleanconll/cleanconll.test ./data/noisebench/clean.test
 
 echo "Creating NoiseBench dataset files and train/dev splits" 
 python scripts/generate_data_files.py
