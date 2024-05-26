@@ -47,17 +47,17 @@ def main():
 
     for corpus_name in corpora:
 
-        train_filename = f'{data_path}noise_{corpus_name}{train_extension}'
+        train_filename = f'{data_path}{corpus_name}{train_extension}'
 
         if 'clean' in dev_extension:
             dev_filename = f'{data_path}{dev_extension}'
         else:
-            dev_filename = f'{data_path}noise_{corpus_name}{dev_extension}'
+            dev_filename = f'{data_path}{corpus_name}{dev_extension}'
 
         if 'clean' in test_extension:
             test_filename = f'{data_path}{test_extension}'
         else:
-            test_filename = f'{data_path}noise_{corpus_name}{test_extension}'
+            test_filename = f'{data_path}{corpus_name}{test_extension}'
 
         f1_scores=defaultdict(list)
         dev_f1_scores=defaultdict(list)
