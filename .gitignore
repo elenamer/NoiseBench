@@ -2,3 +2,4 @@ data/noisebench
 data/cleanconll
 __pycache__/
 resources
+results
