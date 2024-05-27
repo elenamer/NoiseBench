@@ -26,8 +26,8 @@ def create_train_dev_splits(filename, all_sentences = None, datestring = '1996-0
         else:
             train_sentences.append(s)
 
-    save_to_column_file('/'.join(filename.split('/')[:-1])+os.sep+filename.split('/')[-1].split('.')[0]+'.dev',dev_sentences)
-    save_to_column_file('/'.join(filename.split('/')[:-1])+os.sep+filename.split('/')[-1].split('.')[0]+'.train',train_sentences)
+    save_to_column_file(os.sep.join(filename.split(os.sep)[:-1])+os.sep+filename.split(os.sep)[-1].split('.')[0]+'.dev',dev_sentences)
+    save_to_column_file(os.sep.join(filename.split(os.sep)[:-1])+os.sep+filename.split(os.sep)[-1].split('.')[0]+'.train',train_sentences)
 
 
 def merge_tokens_labels(corpus, all_clean_sentences, token_indices):

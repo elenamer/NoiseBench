@@ -38,7 +38,7 @@ bash create_noisebench.sh
 python scripts/generate_data_files.py
 ```
 
-### Running experiments
+### Run experiments
 
 1. Requirements
 ```
@@ -47,7 +47,20 @@ conda activate noisebench
 pip install -r requirements.txt
 ```
 
-2. Run
+2. Run main experiment script
 ```
 python main.py --config configs/exp1_real_noise.json
+```
+
+### Run simulated noise experiments
+
+1. Run simulated noise generation
+```
+python scripts/calculate_data_overviews.py
+python scripts/create_simulated_noisy_sets.py
+```
+
+2. Run main experiment script
+```
+python main.py --config configs/exp1_simulated_noise.json
 ```
