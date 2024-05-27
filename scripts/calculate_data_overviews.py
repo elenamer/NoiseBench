@@ -13,9 +13,9 @@ base_results_path = './results/data_overviews/'
 is_simulated_noise = False
 
 if is_simulated_noise:
-    noisy_datasets_path = base_data_path+'noisebench/'
-    results_path = base_results_path+'noisebench_simulated/'
-    file_name_modifier = '_simulated'
+    noisy_datasets_path = base_data_path+'noisebench/simulated/'
+    results_path = base_results_path+'noisebench/simulated/'
+    file_name_modifier = ''
 else:
     noisy_datasets_path = base_data_path+'noisebench/'
     results_path = base_results_path+'noisebench/'
