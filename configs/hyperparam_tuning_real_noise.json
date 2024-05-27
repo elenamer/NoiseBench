@@ -2,7 +2,7 @@
     "experiment_name": "Exp1",
     "paths": {
         "resources_path": "resources/hyperparam_real_noise/",
-        "data_path":"data/noisyCoNLL/",
+        "data_path":"data/noisebench/",
         "train_filename_extension" :".train",
         "dev_filename_extension" :".dev",
         "test_filename_extension" :".dev"

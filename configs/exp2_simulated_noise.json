@@ -17,11 +17,11 @@
         "scheduler": "None"
     },
     "corpora" : [
-        "expert",
-        "crowd",
-        "crowdbest", 
-        "distant",
-        "weak",
-        "llm"
+        "noise_expert",
+        "noise_crowd",
+        "noise_crowdbest", 
+        "noise_distant",
+        "noise_weak",
+        "noise_llm"
     ]
 }

@@ -38,7 +38,7 @@ def add_label_noise(
                 "Label values in the noise transition matrix have to coincide with label values in the dataset"
             )
 
-        print("Generating noisy labels. Progress:")
+        print("Generating noisy labels.")
         new_sentences = []
         for sentence in sentences_list:
             new_sentence = []
@@ -91,7 +91,7 @@ def add_label_noise(
             new_sentences.append(new_sentence)
 
     print(
-        f"Total labels corrupted: {corrupted_count}. Resulting noise share: {round((corrupted_count / total_label_count) * 100, 2)}%."
+        f"Total labels corrupted: {corrupted_count}. Resulting token-level noise share: {round((corrupted_count / total_label_count) * 100, 2)}%."
     )
     return new_sentences
 
@@ -99,6 +99,7 @@ def add_label_noise(
 
 noisebench_data_path =  'data/noisebench/'
 simulated_data_path = f'{noisebench_data_path}simulated/'
+os.makedirs(simulated_data_path, exist_ok=True)
 
 train_clean_filename = f'{noisebench_data_path}clean.train'
 dev_clean_filename = f'{noisebench_data_path}clean.dev'
