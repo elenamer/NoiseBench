@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import os
 
 sns.set(style="whitegrid", font_scale=2)
 
@@ -15,7 +16,7 @@ def plot_memorization(ax, data_noisy, data_clean):
     ax.axvline(x=10,ls='--', color='gray',ymin=0, ymax=5,linewidth=1.5)
 
 
-corpora = ['noise_expert','noise_crowdbest','noise_distant']
+corpora = ['noise_expert','noise_crowd','noise_crowdbest','noise_distant', 'noise_weak', 'noise_llm']
 
 experiment_path_real_noise = 'resources/exp2_memorization_real_noise'
 experiment_path_simulated_noise = 'resources/exp2_memorization_simulated_noise'
@@ -23,12 +24,12 @@ experiment_parameters = '32_5e-06'
 num_epochs = 100
 
 results_path = 'results/memorization_plots'
+os.makedirs(results_path, exist_ok=True)
+
 memorization_grid_filename = 'memorization_grid.png'
 
-ns_real = {'noise_expert':'5.5%','noise_crowdbest':'15.3%','noise_distant':'31.3%'}
-ns_cdn =  {'noise_expert':'5.9%','noise_crowdbest':'17.9%','noise_distant':'39.2%'}
-
-#titles = {'noisy_original':'Expert','noisy_mv_oracle':'Crowd','noisy_mv':'Crowdsourcing majority vote 36% - "noisy_mv"','noisy_bond':'Distant','noisy_wrench':'Weak supervision 40% - "noisy_wrench"','noisy_fabricator':'Fabricator GPT3.5 45% - "noisy_fabricator"'}
+ns_real = {'noise_expert':'5.5%','noise_crowd':'36.6%','noise_crowdbest':'15.3%','noise_distant':'31.3%', 'noise_weak':'40.4%','noise_llm':'45.6%'}
+ns_cdn =  {'noise_expert':'5.9%','noise_crowd':'41.3%','noise_crowdbest':'17.9%','noise_distant':'39.2%', 'noise_weak':'41.2%','noise_llm':'47.2%'}
 
 full_df = pd.DataFrame(columns=['mean','std'])
 fig_grid, ax_grid = plt.subplots(2, 3, figsize=(24, 12), dpi=150)
