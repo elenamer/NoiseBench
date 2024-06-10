@@ -8,7 +8,8 @@ from collections import Counter
 import os
 
 def read_conll(filename):
-    raw = open(filename, 'r').readlines()
+    raw = open(filename, 'r', errors='replace')
+    raw = raw.readlines()
     all_x = []
     point = []
     for line in raw:
@@ -17,10 +18,14 @@ def read_conll(filename):
         else:
             stripped_line = line.strip().split(' ')
         point.append(stripped_line)
-        if line == '\n':
+        if line.strip() == '':
             if len(point[:-1]) > 0:
                 all_x.append(point[:-1])
             point = []
+
+    if len(point) > 0:
+        all_x.append(point)
+
     all_x = all_x
     return all_x
 

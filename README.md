@@ -64,3 +64,16 @@ python scripts/create_simulated_noisy_sets.py
 ```
 python main.py --config configs/exp1_simulated_noise.json
 ```
+
+
+### Additional experiment: Create the German NoiseBench datasets
+
+This script generates the german version in ``data/noisebench_german``.
+
+1. Get the full dataset following the instructions here: https://www.clips.uantwerpen.be/conll2003/ner/. With this, the full dataset (files ```deu.train```, ```deu.testa```, ```deu.testb```) should be downloaded in the ```data/conll_german``` directory.
+
+2. Run:
+
+``` 
+python scripts/generate_german_data_files.py
+```
