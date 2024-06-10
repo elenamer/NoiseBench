@@ -1,5 +1,8 @@
 data/noisebench
 data/cleanconll
+data/noisebench
+data/conll_german
+data/noisebench_german
 __pycache__/
 resources
 results

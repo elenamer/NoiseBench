@@ -1,5 +1,7 @@
 from utils import *
+import os
 
+SAVE_TRAINDEV_FILE = False
 
 def create_train_dev_splits(filename, all_sentences = None, dev_share = 0.17, num_documents = 553):
     if not all_sentences:
@@ -30,6 +32,8 @@ def main():
 
     corpora = ['clean','noise_expert']
 
+    os.makedirs(os.path.join('data','noisebench_german'), exist_ok=True)
+
     #create train and dev files
     only_train = read_conll('data/conll_german/deu.train')
 
@@ -49,6 +53,9 @@ def main():
                 new_sentence.append([token[0], labels[3]])
 
             noisy_sentences.append(new_sentence)
+            
+        if SAVE_TRAINDEV_FILE:
+            save_to_column_file(os.path.join('data','noisebench_german',f'{corpus}.traindev'),noisy_sentences)
 
         create_train_dev_splits(all_sentences=noisy_sentences,filename=os.path.join('data','noisebench_german',f'{corpus}.traindev'))
 
