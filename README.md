@@ -1,6 +1,6 @@
 # NoiseBench: Benchmarking the Impact of Real Label Noise on Named Entity Recognition
 
-We created a benchmark for learning with noisy labels. More details can be found in our EMNLP 2024 [paper] (https://arxiv.org/abs/2405.07609). 
+We created a benchmark for learning with noisy labels. More details can be found in our EMNLP 2024 [paper](https://arxiv.org/abs/2405.07609). 
 
 ## About
 
